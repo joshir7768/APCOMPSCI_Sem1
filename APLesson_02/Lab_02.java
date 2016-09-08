@@ -21,16 +21,23 @@ public class Lab_02
 		
 		System.out.println("5 multiplied by 6 is" + " " + sqArea);
 		
-		string g = Rachana Joshi;
-		string h = Tierra Vista Circle;
-		string i = San Diego;
-		string j = 92130; 
+		String g = "Rachana Joshi";
+		String h = "Tierra Vista Circle";
+		String i = "San Diego";
+		String j = "92130"; 
 		
 		
 		System.out.println("Name - " + g);
 		System.out.println("Address - " + h);
 		System.out.println("City - " + i);
 		System.out.println("zip - " + j); 
+		
+		int w = 4;
+		int l = 5;
+		int y = 6;
+		int recAreacube = 2 * w * l + 2 * l * y + 2 * y * w; 
+		
+		System.out.println("The surface area of your rectangle is" + " " + recAreacube);
 	}
     
 
