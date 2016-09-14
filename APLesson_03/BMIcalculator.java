@@ -8,28 +8,21 @@ public class BMIcalculator
         Scanner keyboard = new Scanner(System.in);
         
         //prompt for user input
-        System.out.println("What is your height in meters? ");
+        System.out.println("What is your height in inches? ");
         
-        String height = keyboard.next();
+        double h = keyboard.nextDouble();
         
         //prompt for user input
-        System.out.print("What is your weight in kilograms? ");
+        System.out.print("What is your weight in pounds? ");
         
-        String weight = keyboard.next();
-        
-        Double  w = Double.valueOf(weight);
+        double w = keyboard.nextDouble() ;
 
-        System.out.println("Your weight is " + w);
         
-        Double  h = Double.valueOf(height);
-
-        System.out.println("Your height is " + h);
+        double bmi = ((w * 703) / (h * h));
         
-        Double bmi = (w / (h * h));
+        // System.out.println("BMI Is"  + 703 * weight / (height * height) );
         
-        // System.out.println("BMI Is"  + weight / (height * height) );
-        
-        System.out.format("Your BMI is " + bmi );
+        System.out.println("Your BMI is " + bmi );
     }
 }
 
