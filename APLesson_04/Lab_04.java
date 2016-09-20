@@ -36,6 +36,8 @@ public class Lab_04
 		String word6 = "Total: .....";
 		double number6 = 9.64;
 		
+		form.format(word6, number6);
+		
 		System.out.println(" ");
 		System.out.println("_______________________________________");
 		System.out.println("* Thank you for your support *");
