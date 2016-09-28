@@ -1,9 +1,9 @@
 import java.util.Scanner;
-public class Rectangle
+public class Cube
 {
 	//declaring only
 	static double length;
-	static double width;
+
 	
 	public static void main(String[]args)
 	{
@@ -11,19 +11,17 @@ public class Rectangle
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Please enter the length");
 		length = kb.nextDouble();
-		System.out.println("Please enter the width");
-		width = kb.nextDouble();
-		equation();
+		calcSurf();
 		method1();
 	}
 	
-	public static double equation()
+	public static double calcSurf()
 	{
-		return (2 * length) + (2 * width);
+		return (6 * (length *length));
 	}
 	
 	public static void method1()
 	{
-		System.out.printf("Your rectangle is " + "%10.5f\n" , equation() , " sq ft around.");
+		System.out.printf("The surface area of a cube with " + length + " sides is " + "%10.5f\n" , calcSurf());
 	}
 }
