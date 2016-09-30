@@ -1,27 +1,26 @@
 import java.util.Scanner;
 public class Cube
 {
-	//declaring only
-	static double length;
+	static double l;
+	static double surfaceArea;
 
 	
 	public static void main(String[]args)
 	{
-		//initializing length and width here
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Please enter the length");
-		length = kb.nextDouble();
+		l = kb.nextDouble();
 		calcSurf();
 		method1();
 	}
 	
-	public static double calcSurf()
+	public static void calcSurf()
 	{
-		return (6 * (length *length));
+		surfaceArea = (6 * (l * l));
 	}
 	
 	public static void method1()
 	{
-		System.out.printf("The surface area of a cube with " + length + " sides is " + "%10.5f\n" , calcSurf());
+		System.out.printf("The surface area of a cube with " + l + " sides is " + "%10.5f\n" , surfaceArea);
 	}
 }

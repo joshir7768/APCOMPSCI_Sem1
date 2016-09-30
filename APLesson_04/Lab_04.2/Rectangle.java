@@ -1,29 +1,29 @@
 import java.util.Scanner;
 public class Rectangle
 {
-	//declaring only
-	static double length;
-	static double width;
+	static double l,w;
+	static double perimeter;
 	
 	public static void main(String[]args)
 	{
 		//initializing length and width here
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Please enter the length");
-		length = kb.nextDouble();
+		l = kb.nextDouble();
 		System.out.println("Please enter the width");
-		width = kb.nextDouble();
+		w = kb.nextDouble();
 		equation();
 		method1();
 	}
 	
-	public static double equation()
+	public static void equation()
 	{
-		return (2 * length) + (2 * width);
+		perimeter = (2 * l) + (2 * w);
+		//use l and w directly
 	}
 	
 	public static void method1()
 	{
-		System.out.printf("Your rectangle is " + "%10.5f\n" , equation() , " sq ft around.");
+		System.out.printf("Your rectangle is " + "%10.5f\n" , perimeter , " sq ft around.");
 	}
 }

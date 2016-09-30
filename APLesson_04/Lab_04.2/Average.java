@@ -1,10 +1,11 @@
 import java.util.Scanner;
 public class Average
 {
-	//declaring only
 	static double num1;
 	static double num2;
 	static double num3;
+	static double average;
+	
 	
 	public static void main(String[]args)
 	{
@@ -20,13 +21,13 @@ public class Average
 		method1();
 	}
 	
-	public static double equation()
+	public static void equation()
 	{
-		return (num1 + num2 + num3) / 3;
+		average = (num1 + num2 + num3) / 3;
 	}
 	
 	public static void method1()
 	{
-		System.out.printf("The average of " + num1 + ", " + num2 + ", " + "and " + num3 + " is" + "%10.5f\n " , equation()); 
+		System.out.printf("The average of " + num1 + ", " + num2 + ", " + "and " + num3 + " is" + "%10.5f\n " , average); 
 	}
 }
