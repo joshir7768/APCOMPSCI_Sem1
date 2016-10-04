@@ -22,15 +22,16 @@ public class Lab_02
 		System.out.println("5 multiplied by 6 is" + " " + sqArea);
 		
 		String g = "Rachana Joshi";
-		String h = "Tierra Vista Circle";
+		String h = "13506 Tierra Vista Circle";
 		String i = "San Diego";
 		String j = "92130"; 
 		
 		
-		System.out.println("Name - " + g);
-		System.out.println("Address - " + h);
-		System.out.println("City - " + i);
-		System.out.println("zip - " + j); 
+		System.out.println(g);
+		System.out.println(h);
+		System.out.println(i + "," + j);
+	 
+	 
 		
 		int w = 4;
 		int l = 5;
