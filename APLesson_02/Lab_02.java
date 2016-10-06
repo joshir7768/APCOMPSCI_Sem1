@@ -23,7 +23,7 @@ public class Lab_02
 		
 		String g = "Rachana Joshi";
 		String h = "13506 Tierra Vista Circle";
-		String i = "San Diego";
+		String i = "San Diego, CA";
 		String j = "92130"; 
 		
 		
