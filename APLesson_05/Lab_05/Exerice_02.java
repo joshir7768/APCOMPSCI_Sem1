@@ -27,7 +27,7 @@ public class Exerice_02
 		double subtotal = price1 + price2 + price3 + price4;
 		double discount = calcDisc(subtotal);
 		double tax = subtotal * 0.08;
-		double total = discount + tax;
+		double total = subtotal - discount + tax;
 		
 		System.out.println("<<<<<<<<<<<<<<<<<<receipt>>>>>>>>>>>>>>>>>>>");
 		receipt.format(item1, price1);
@@ -56,3 +56,9 @@ public class Exerice_02
 		System.out.printf("%20s...............$%.2f\n", item, price);
 	}
 }
+
+
+
+
+
+
