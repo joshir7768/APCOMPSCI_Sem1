@@ -9,8 +9,8 @@ public class Exercise_04
 		System.out.println("What is your weight? ");
 		double weight = kb.nextDouble();
 		
-		double part1 = (weight / height); 
-		double BMI = 703 * part1;
+		double part1 = (height / height); 
+		double BMI = (weight * 703) * part1;
         String category = (calcBMI(BMI));
 		System.out.println("Your BMI is " + BMI);
 		System.out.println("You are " + category );
