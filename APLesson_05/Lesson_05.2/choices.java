@@ -12,7 +12,7 @@ public class choices
 		if(mathOrWords == 1)
 		{
 			System.out.println("Wat is 2 * 2? ");
-			int mathAnswer = kbnextInt();
+			int mathAnswer = kb.nextInt();
 			if(mathAnswer == 4)
 			{
 				System.out.println("Correct");
