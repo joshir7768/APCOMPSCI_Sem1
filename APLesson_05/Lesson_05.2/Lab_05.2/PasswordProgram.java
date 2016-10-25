@@ -27,16 +27,22 @@ public class PasswordProgram
 		else
 		{
 			if (user.equals(username))
+			{
 				System.out.println("Your password is incorrect!");
+				passCheck();
+			}
 			
-			else if (user.equals(password))
+			else if(pass.equals(password))
+			{
 				System.out.println("You username is incorret!");
-				
-			else
+				passCheck();
+			}	
+			
+			else 
+			{
 				System.out.println("Username and password are both incorrect!");
+				passCheck();
+			}
 		}
-		
-	
-		
 	}
 } 
