@@ -1,43 +1,45 @@
+import java.util.Scanner;
 public class Lab_04
 {
 	public static void main(String[]args)
 	{
 		Lab_04 form = new Lab_04();
+		Scanner kb = new Scanner(System.in);
+	
+	    System.out.println("Please enter your first item. ");
+		String word1 = kb.nextLine();
+		System.out.println("Enter the price for this item. ");
+		double number1 = kb.nextDouble(); 
 		
-		System.out.println("<<<<<<<<<<<<<<<_Receipt_>>>>>>>>>>>>>>>");
+		kb.nextLine();
 		
-		String word1 = "Cheese Sandwich .....";
-		double number1 = 4.50;
+	    System.out.println("Please enter your second item. ");
+		String word2 = kb.nextLine();
+		System.out.println("Enter the price for this item. ");
+		double number2 = kb.nextDouble(); 
 		
-		form.format(word1, number1);
+		kb.nextLine();
 		
-		String word2 = "French Fries .....";
-		double number2 = 2.88;
+		System.out.println("Please enter your third item. ");
+		String word3 = kb.nextLine();
+		System.out.println("Enter the price for this item. ");
+		double number3 = kb.nextDouble(); 
 		
-		form.format(word2, number2);
+		kb.nextLine();
 		
-		String word3 = "Soda..... ";
-		double number3 = 1.63;
+		double subtotal = number1 + number2 + number3;
+		double tax = subtotal * 0.08;
+		double total = subtotal + tax;
 		
-		form.format(word3, number3);
 		
+	    System.out.println("<<<<<<<<<<<<<<<_Receipt_>>>>>>>>>>>>>>>");
 		System.out.println(" ");
-		
-		String word4 = "Subtotal: .....";
-		double number4 = 9.01;
-		
-		form.format(word4, number4);
-		
-		String word5 = "Tax: .....";
-		double number5 = 0.63;
-		
-		form.format(word5, number5);
-		
-		String word6 = "Total: .....";
-		double number6 = 9.64;
-		
-		form.format(word6, number6);
-		
+		form.format(word1, number1);
+		form.format(word2, number2);
+		form.format(word3, number3);
+		form.format("Subtotal: " , subtotal);
+		form.format("Tax: " , tax);
+		form.format("Total: " , total );
 		System.out.println(" ");
 		System.out.println("_______________________________________");
 		System.out.println("* Thank you for your support *");
