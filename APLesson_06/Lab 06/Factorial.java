@@ -11,7 +11,7 @@ public class Factorial
 		{
 			factorial = factorial * needed;
 		}
-		System.out.println("The factorial is" + factorial );
+		System.out.println("The factorial is " + factorial );
 		
 		
 	}
