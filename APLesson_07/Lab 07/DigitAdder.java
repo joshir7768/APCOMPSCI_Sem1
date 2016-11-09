@@ -10,7 +10,7 @@ public class DigitAdder
 		System.out.println("Plese enter a number: ");
 		number = kb.nextInt();
 		sumDigits();
-		System.out.println(number + " has " + sum + "digits. ");
+		System.out.println(number + " has " + sum + " digits. ");
 	
 	}
 	public static void sumDigits()
