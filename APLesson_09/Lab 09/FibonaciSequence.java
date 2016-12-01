@@ -1,24 +1,31 @@
 import java.util.Scanner;
+
 public class FibonaciSequence
 {
-	static String[] num;
-	static String[] size;
-	
-	public static void main(String[]args)
+	public static void main (String[]args)
 	{
-		String [] seq = new String[2];
 		Scanner kb = new Scanner(System.in);
-		System.out.println("Please enter your starying number: ");
-		System.out.println("Please enter your sequence size: ");
+		System.out.println("Please enter your starting number: ");
+		int starting = kb.nextInt();
 		
-		for(int i = 0; i < seq.length; i++)
+		System.out.println("Plsease enter your sequence size: ");
+		int seq = kb.nextInt();
+		
+		int[] numbers = new int[seq];
+		
+		for(int i = 0; i < numbers.length; i++)
 		{
-			seq[i] = kb.next();
-			if i = 0 || 1
-			{
-				seq 
-			}
+			if ( (i == 0 ) || (i == 1) )
+		       {
+				   numbers[i] = starting;
+			   }
+			else
+				{
+					numbers[i] = numbers[i-1] + numbers[i-2];
+				}
+				
+			System.out.println(" " + numbers[i] );
 		}
-		
-	}
+
+	}	
 }
