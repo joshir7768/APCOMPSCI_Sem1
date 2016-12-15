@@ -2,11 +2,13 @@ import java.util.Scanner;
 public class AverageDigits
 {
 	static int number;
-	static int digits = 0;
-	static int average = 0;
+	static int digits;
+	static double average;
 	
 	public static void main(String[]args)
 	{
+		digits = 0; 
+		average = 0;
 		Scanner kb = new Scanner(System.in);
 		System.out.println("Plese enter a number: ");
 		number = kb.nextInt();
@@ -22,8 +24,7 @@ public class AverageDigits
 			digits += 1;
 			average += num % 10;
 			num /= 10;
-			
-			average = average / digits;
 		} 
+		average =((double)(average) / digits);
 	}
 }
