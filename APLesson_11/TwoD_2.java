@@ -2,42 +2,31 @@ public class TwoD_2
 {
 	public static void main(String[]args)
 	{
-		//filling the array
-		int[][]values = new int [4][4];
+		String letters = "abcdefghijklmnopqrstuvwxyz";
+		String [][] randLetters = new String [4][4];
 		
-	//	int num = 1;
-	//	for(int i = 0; i < values.length; i++)
-	//	{
-	//		for(int j = 0; j < values[i].length; j++)
-	//		{
-	//			values[i][j] = num;
-	//			num++;
-	//		}
-	//	 }
-		
-		
-		int num = 1; 
-		for(int i = 0; i < values.length; i++)
+	//	randLetters[0][0] = "a";
+	//	randLetters[1][1] = "b"; 
+	//	randLetters[2][2] = "c";
+	//	randLetters[3][3] = "d";
+	
+		int spot = 0;
+		for(int i = 0; i < randLetters.length; i++)
 		{
-			for(int j = 0; j < values[i].length; j++)
+			for(int j = 0; j < randLetters[i].length; j++)
 			{
-				values[i][j] = num;
-				num++;
-			}
-			
-		}
-		//print out the array
-		int count = 0;
-		for(int i = 0; i < values.length; i++)
-		{
-			for(int j = 0; j < values[i].length; j++)
-			{
-				if(values[i][j] % 5 == 0)
-				{
-					count++;
-				}
+				randLetters[j][i] = letters.substring(spot, spot +1);
+				spot++;
 			}
 		}
-		System.out.println("There are "+ count + " multiples of 5 in the Array. ");
+		
+		for(int i = 0; i < randLetters.length; i++)
+		{
+			for(int j = 0; j < randLetters[i].length; j++)
+			{
+				System.out.print(randLetters[i][j] + "\t");
+			}
+			System.out.println();
+		}
 	}
 }
