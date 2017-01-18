@@ -17,23 +17,22 @@ public class GameHealth
 		while(!turn.equals("Q") && healthCount > 0)
 		{
 			System.out.println("Your turn! Hit Enter when ready:");
-			String prompt = kb.next();
+			String prompt = kb.nextLine();
 			turn = prompt;
 			damage = (int)(Math.random()*2)+1;
 			amount = (int)(Math.random()*6)+1;
 			System.out.print(takeDamage(damage, amount));
-			printClip();
-			
+			printClip();			
 		}
 		System.out.println("You died!!! ");
 		
 	}
 	
-	public static void takeDamege(int damage, int amount)
+	public static String takeDamage(int damage, int amount)
 	{
 		if (damage == 1)
 		{
-			amount -= healthCount;
+			healthCount -= amount;
 			
 			return"Taking " + amount + " damage!";
 		}
@@ -65,9 +64,9 @@ public class GameHealth
 			else
 			{
 				health[i] = "[]";
-				health[i] += output;
 			}
-			System.out.println(output);
+			output += health[i] + " ";
 		}
+		System.out.println(output);
 	}
 }
