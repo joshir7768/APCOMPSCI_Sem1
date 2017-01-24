@@ -13,21 +13,21 @@ public class Distance
 		distance = 0;
 	}
 	
-	public Distance(int xOne, int yOne, int xTwo, int yTwo)
+	public Distance(int xO, int yO, int xT, int yT)
 	{
-		xOne = xOne;
-		yOne = yOne;
-		xTwo = xTwo; 
-		yTwo = yTwo;
+		xOne = xO;
+		yOne = yO;
+		xTwo = xT; 
+		yTwo = yT;
 		distance = 0;
 	}
 	
-	public void setValues(int xOne, int yOne, int xTwo, int yTwo)
+	public void setValues(int xO, int yO, int xT, int yT)
 	{
-		xOne = xOne;
-		yOne = yOne;
-		xTwo = xTwo; 
-		yTwo = yTwo;
+		xOne = xO;
+		yOne = yO;
+		xTwo = xT; 
+		yTwo = yT;
 		distance = 0;
 	}
 	
