@@ -19,6 +19,7 @@ public class DistanceRunner
 		//using the constructor...
 		Distance object = new Distance(x1, y1, x2, y2);
 		System.out.println("distance = " + object.getDist());
+		
 		//using the modifier once the object is created...
 		object.setValues(500, 23, 450, 180);
 		System.out.println("distance = " + object.getDist());
