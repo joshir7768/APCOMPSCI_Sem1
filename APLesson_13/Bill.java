@@ -1,4 +1,4 @@
-public class Bill
+public class Bill extends Money
 {
 	private String name;
 	private String face;
@@ -6,23 +6,26 @@ public class Bill
 	
 	public Bill()
 	{
-		name = "";
-		face = "";
-		value = 0;
-		
+		super();
+		this.face = "";
 	}
 	
 	public Bill(String n, String f,double v)
 	{
-		name = n; 
-		face = f;
-		value = v;
+		super(n, v);
+		this.face = f;
 		
+		
+	}
+	
+	public String scan()
+	{
+		return face;
 	}
 	
 	public String toString()
 	{
 		return "Face: " + face  + "\n" +
-				"Your" + name + "is worth $" + value + ".\n";
+				super.toString();
 	}
 }
