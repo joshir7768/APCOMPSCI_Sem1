@@ -1,27 +1,29 @@
 public abstract class Toy
 {
+
 	private String name;
 	private int count;
-	
+
 	public Toy()
 	{
 		this.name = "";
-		this.count = 0;
+		this.count = 1;
+	
 	}
 	public Toy(String n)
 	{
 		this.name = n;
-		this.count = 0;
+		this.count = 1;
 	}
+
 	
 	public String getName()
 	{
-		return name;
+		return this.name;
 	}
-	
 	public int getCount()
 	{
-		return count;
+		return this.count;
 	}
 	
 	public void setName(String n)
@@ -38,7 +40,7 @@ public abstract class Toy
 	
 	public String toString()
 	{
-		return "Name" + name +
-		       "Count" + count;
+		return this.name + " " + this.count;		
 	}
+
 }
