@@ -15,7 +15,7 @@ public class XBox extends Console
 	}	
 	public String getPlatform()
 	{
-		return "PlayStation";
+		return "XBox";
 	}
 	//do playstation onwards
 }
