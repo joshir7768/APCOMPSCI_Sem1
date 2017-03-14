@@ -1,4 +1,4 @@
-public class Toyota implements Location
+public class Toyota extends TheCar
 {
 	private double[] location;
 	private double x;

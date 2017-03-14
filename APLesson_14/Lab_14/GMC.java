@@ -1,4 +1,4 @@
-public class GMC
+public class GMC implements Location
 {
 	private double[] location;
 	public GMC()
@@ -13,7 +13,7 @@ public class GMC
 	}
 	public int getID() 
 	{
-		return (int)(Math.random()*6)+1;
+		return (int)(Math.random()*1000000)+1;
 	}
 	public void move(double x, double y)
 	{

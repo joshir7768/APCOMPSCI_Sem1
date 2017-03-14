@@ -1,14 +1,15 @@
-public class Honda implements Location
+public class GMC extends TheCar
 {
 	private double[] location;
-	
-	public Honda()
+	public GMC()
 	{
 		location = new double[2];
 	}
-	public Honda(double[] coords)
+	public GMC(double x, double y)
 	{
-		location = coords;
+		location = new double[2];
+		location[0] = x;
+		location[1]= y;
 	}
 	public int getID() 
 	{
