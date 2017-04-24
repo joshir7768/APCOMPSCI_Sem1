@@ -63,7 +63,17 @@ public class Magpie3
             }
 			else
 			{
-			response = getRandomResponse();
+				psn = findKeyword(statement, "I", 0);
+				if (psn >= 0 
+				&& findKeyword(statement, "you", psn) >= 0)
+				{
+					response = ilikeyoueStatement(statement);
+				}
+				else
+				{
+					response = getRandomResponse();
+				}
+					
 			}
 
 		}
@@ -220,3 +230,4 @@ public class Magpie3
 
 		return response;
 	}
+}
