@@ -127,6 +127,7 @@ public class PictureTester
   public static void testmyCollage()
   {
     
+	
   }
   
   public static void testCopy()
@@ -177,10 +178,10 @@ public class PictureTester
     testMirrorGull();
 
     // testMirrorDiagonal();
-	// testCollage();
-    // testCopy();
-    // testmyCollage();
-    // testEdgeDetection();
+	testCollage();
+    testCopy();
+    testmyCollage();
+    testEdgeDetection();
     // testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
