@@ -130,6 +130,8 @@ public class PictureTester
 	
   }
   
+ 
+  
   public static void testCopy()
   {
     Picture canvas = new Picture("640x480.jpg");
@@ -146,13 +148,13 @@ public class PictureTester
     swan.explore();
   }
   
-  // public static void testEdgeDetection2()
-  // {
-      // Picture swan = new Picture("swan.jpg");
-      // swan.explore();
-      // swan.edgeDetection2(30);
-      // swan.explore();
-  // }
+   public static void testEdgeDetection2()
+   {
+       Picture swan = new Picture("swan.jpg");
+       swan.explore();
+       swan.edgeDetection2(30);
+       swan.explore();
+   }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -182,7 +184,7 @@ public class PictureTester
     testCopy();
     testmyCollage();
     testEdgeDetection();
-    // testEdgeDetection2();
+    testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
