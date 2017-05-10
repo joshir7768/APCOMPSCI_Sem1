@@ -29,31 +29,33 @@ public class Deck {
 	 * @param suits is an array containing all of the card suits.
 	 * @param values is an array containing all of the card point values.
 	 */
-	public Deck(String[] ranks, String[] suits, int[] values) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+	public Deck(String[] ranks, String[] suits, int[] values) 
+	{
+		 this.cards = new ArrayList<Card>();
+        for (int i = 0; i < ranks.length; i++) {
+            Card aCard = new Card(ranks[i], suits[i], values[i]);
+            this.cards.add(aCard);
+        }
+        this.size = this.cards.size();
+        shuffle();
+	}
+
+	public boolean isEmpty() 
+	{
+		
+        if (this.cards.size() == 0) 
+		{
+            return true;
+        }
+        return false;
+    }
+	
+	public int size() 
+	{
+		return this.cards.size();
 	}
 
 
-	/**
-	 * Determines if this deck is empty (no undealt cards).
-	 * @return true if this deck is empty, false otherwise.
-	 */
-	public boolean isEmpty() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-	}
-
-	/**
-	 * Accesses the number of undealt cards in this deck.
-	 * @return the number of undealt cards in this deck.
-	 */
-	public int size() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-	}
-
-	/**
-	 * Randomly permute the given collection of cards
-	 * and reset the size to represent the entire deck.
-	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
 	}
@@ -63,14 +65,16 @@ public class Deck {
 	 * @return the card just dealt, or null if all the cards have been
 	 *         previously dealt.
 	 */
-	public Card deal() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+	public Card deal() 
+	{
+		 this.size = this.size - 1;
+        if (this.size > 0) {
+            return this.cards.get(this.size);
+        }
+        return null;
 	}
 
-	/**
-	 * Generates and returns a string representation of this deck.
-	 * @return a string representation of this deck.
-	 */
+	
 	@Override
 	public String toString() {
 		String rtn = "size = " + size + "\nUndealt cards: \n";
