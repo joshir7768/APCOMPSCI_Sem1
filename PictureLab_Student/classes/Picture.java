@@ -5,15 +5,16 @@ import java.awt.image.BufferedImage;
 import java.text.*;
 import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
+import java.io.*;
 
 /**
  * A class that represents a picture.  This class inherits from 
  * SimplePicture and allows the student to add functionality to
  * the Picture class.  
  * 
- * @author Barbara Ericson ericson@cc.gatech.edu
+ * 
  */
-public class Picture extends SimplePicture 
+public class Picture extends SimplePicture
 {
   ///////////////////// constructors //////////////////////////////////
   
@@ -98,11 +99,7 @@ public class Picture extends SimplePicture
     }
   }
   
-  /** Method that mirrors the picture around a 
-    * vertical mirror in the center of the picture
-    * from left to right */
-	
-	public void keepOnlyBlue()
+  public void keepOnlyBlue()
   {
     Pixel[][] pixels = this.getPixels2D();
     for (Pixel[] rowArray : pixels)
@@ -110,6 +107,32 @@ public class Picture extends SimplePicture
       for (Pixel pixelObj : rowArray)
       {
          pixelObj.setRed(0);
+         pixelObj.setGreen(0);
+      }
+    }
+  }
+
+  public void keepOnlyGreen()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+         pixelObj.setBlue(0);
+         pixelObj.setRed(0);
+      }
+    }
+  }
+  
+  public void keepOnlyRed()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+         pixelObj.setBlue(0);
          pixelObj.setGreen(0);
       }
     }
@@ -129,7 +152,7 @@ public class Picture extends SimplePicture
     }
   }
   
-   public void grayscale()
+  public void grayscale()
   {
     Pixel[][] pixels = this.getPixels2D();
     for (Pixel[] rowArray : pixels)
@@ -144,7 +167,7 @@ public class Picture extends SimplePicture
     }
   }
   
-   public void invert()
+  public void invert()
   {
       Pixel[][] pixels = this.getPixels2D();
       for (int row = 0; row < pixels.length; row++)
@@ -161,6 +184,30 @@ public class Picture extends SimplePicture
           }
       }
   }
+  
+  public void darken(int amount)
+  {
+      Pixel[][] pixels = this.getPixels2D();
+      for (int row = 0; row < pixels.length; row++)
+      {
+          for (int col = 0; col < pixels[0].length; col++)
+          {
+              int red = pixels[row][col].getRed() - amount;
+              int green = pixels[row][col].getGreen() - amount;
+              int blue = pixels[row][col].getBlue() - amount;
+              
+              Color newColor = new Color(red, green, blue);
+              
+              pixels[row][col].setColor(newColor);
+          }
+      }
+  }
+  
+  /**
+   * Method to fix the fish
+   * Takes a sample and adjust the image
+   * to better see the fish
+   */
   
   public void fixUnderwater()
   {
@@ -242,8 +289,10 @@ public class Picture extends SimplePicture
       }
     }
   }
-	
-	
+  
+  /** Method that mirrors the picture around a 
+    * vertical mirror in the center of the picture
+    * from left to right */
   public void mirrorVertical()
   {
     Pixel[][] pixels = this.getPixels2D();
@@ -258,7 +307,7 @@ public class Picture extends SimplePicture
         rightPixel = pixels[row][width - 1 - col];
         rightPixel.setColor(leftPixel.getColor());
       }
-    } 
+    }
   }
   
   public void mirrorVerticalRightToLeft()
@@ -295,7 +344,7 @@ public class Picture extends SimplePicture
       }
   }
   
-   public void mirrorHorizontalBottomToTop()
+  public void mirrorHorizontalBottomToTop()
   {
       Pixel[][] pixels = this.getPixels2D();
       Pixel topPixel = null;
@@ -312,7 +361,7 @@ public class Picture extends SimplePicture
       }
   }
   
-    public void mirrorDiagonal() 
+  public void mirrorDiagonal() // mirrors from top right to bottom left
   {
       Pixel[][] pixels = this.getPixels2D();
       Pixel topRightPixel = null;
@@ -357,15 +406,8 @@ public class Picture extends SimplePicture
     System.out.println(count);
   }
   
-  /** copy from the passed fromPic to the
-    * specified startRow and startCol in the
-    * current picture
-    * @param fromPic the picture to copy from
-    * @param startRow the start row to copy to
-    * @param startCol the start col to copy to
-    */
-	
-	public void mirrorArms()
+  /** Mirrors the arms of the snowman */
+  public void mirrorArms()
   {
     int mirrorPoint = 193;
     Pixel topPixel = null;
@@ -400,6 +442,33 @@ public class Picture extends SimplePicture
       }
     }
   }
+  
+  public void mirrorGull()
+  {
+    int mirrorPoint = 345;
+    Pixel rightPixel = null;
+    Pixel leftPixel = null;
+    Pixel[][] pixels = this.getPixels2D();   
+    
+    // Seagull
+    for (int row = 235; row < 323; row++)
+    {
+      for (int col = 238; col < mirrorPoint; col++)
+      {
+        rightPixel = pixels[row][col];      
+        leftPixel = pixels[row][mirrorPoint - col + mirrorPoint/3];
+        leftPixel.setColor(rightPixel.getColor());
+      }
+    }
+  }
+  
+  /** copy from the passed fromPic to the
+    * specified startRow and startCol in the
+    * current picture
+    * @param fromPic the picture to copy from
+    * @param startRow the start row to copy to
+    * @param startCol the start col to copy to
+    */
   public void copy(Picture fromPic, 
                  int startRow, int startCol)
   {
@@ -420,30 +489,10 @@ public class Picture extends SimplePicture
         fromPixel = fromPixels[fromRow][fromCol];
         toPixel = toPixels[toRow][toCol];
         toPixel.setColor(fromPixel.getColor());
+        System.out.println("Fromrow " + fromRow + " toRow " + toRow + " fromCol" + fromCol + " toCol " + toCol);
       }
     }   
   }
-  
-	public void mirrorGull()
-  {
-    int mirrorPoint = 345;
-    Pixel rightPixel = null;
-    Pixel leftPixel = null;
-    Pixel[][] pixels = this.getPixels2D();   
-    
-    // Seagull
-    for (int row = 235; row < 323; row++)
-    {
-      for (int col = 238; col < mirrorPoint; col++)
-      {
-        rightPixel = pixels[row][col];      
-        leftPixel = pixels[row][mirrorPoint - col + mirrorPoint/3];
-        leftPixel.setColor(rightPixel.getColor());
-      }
-    }
-  }
-  
-
   
   public void copy2(Picture fromPic, int startRow, int endRow, int startCol, int endCol)
   {
@@ -470,8 +519,6 @@ public class Picture extends SimplePicture
     } 
   }
 
-
-  
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
@@ -519,7 +566,6 @@ public class Picture extends SimplePicture
       this.write("mycollage.jpg");
   }
   
-  
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
     */
@@ -549,7 +595,14 @@ public class Picture extends SimplePicture
     }
   }
   
-    
+  /**
+   * Method for edge detection, my way.
+   * Handy methods used in this method are below.
+   * 
+   * 
+   * 
+   */
+  
   public void edgeDetection2(int edgeDist)
   {
       Pixel currentPixel = null, testPixel = null;
@@ -704,13 +757,149 @@ public class Picture extends SimplePicture
       return pixelCluster;
   }
   
+  /**
+   * Method getPartialArray takes an array of pixels,
+   * an angle to divide the array, and the "type of" that
+   * determines whether it returns the top/right (0) or
+   * the bottom/left (1)
+   * 
+   * This one only takes the elements that lie on the line of division
+   * 
+   * Need to update this method to match the one below ********
+   * 
+   * @param pixels 
+   * @param angle the angle to divide, given in radians (0 to pi)
+   */
+  public ArrayList<Pixel> getPartialArrayLine(Pixel[][] fullArray, double angle, int typeOf)
+  {
+      int rows = fullArray.length, cols = fullArray[0].length;
+          int centerRow = rows / 2, centerCol = cols / 2;
+          int arrayLength = (rows * cols);
+          ArrayList<Pixel> tempList = new ArrayList<Pixel>();
+          
+          double slope = Math.tan(angle);
+          if (slope == 0) slope = 0.001;
+          double newSlope = -1 / slope;
+          
+          for (int i = 0; i < arrayLength; i++)
+          {
+              int currentRow = i / cols, currentCol = i % cols;
+              //System.out.println(i + "\t" + currentRow + " " + currentCol);
+              if (currentCol == (newSlope * (currentRow - centerRow) + centerCol))
+                      // this tests whether the current cell is above/below the "line"
+              {
+                  if (typeOf == 1)
+                  {
+                      tempList.add(fullArray[currentRow][currentCol]);
+                      //System.out.println("added " + i);
+                  }
+              }
+              else
+              {
+                  if (typeOf == 0)
+                  {
+                      tempList.add(fullArray[currentRow][currentCol]);
+                      //System.out.println("added " + i);
+                  }
+              }
+          }
+          
+          return tempList;
+  }
+  
+  
+  /**
+   * Method getPartialArray takes an array of pixels,
+   * an angle to divide the array, and the "type of" that
+   * determines whether it returns the top/right (0) or
+   * the bottom/left (1)
+   * 
+   * Need to update this method to match the one below ********
+   * 
+   * @param pixels 
+   * @param angle the angle to divide, given in radians (0 to pi)
+   */
+  public ArrayList<Pixel> getPartialArray(Pixel[][] fullArray, double angle, int typeOf)
+  {
+      int rows = fullArray.length, cols = fullArray[0].length;
+          int centerRow = rows / 2, centerCol = cols / 2;
+          int arrayLength = (rows * cols);
+          ArrayList<Pixel> tempList = new ArrayList<Pixel>();
+          
+          double slope = Math.tan(angle);
+          if (slope == 0) slope = 0.001;
+          double newSlope = -1 / slope;
+          
+          for (int i = 0; i < arrayLength; i++)
+          {
+              int currentRow = i / cols, currentCol = i % cols;
+              //System.out.println(i + "\t" + currentRow + " " + currentCol);
+              if (currentCol < (newSlope * (currentRow - centerRow) + centerCol))
+                      // this tests whether the current cell is above/below the "line"
+              {
+                  if (typeOf == 1)
+                  {
+                      tempList.add(fullArray[currentRow][currentCol]);
+                      //System.out.println("added " + i);
+                  }
+              }
+              else
+              {
+                  if (typeOf == 0)
+                  {
+                      tempList.add(fullArray[currentRow][currentCol]);
+                      //System.out.println("added " + i);
+                  }
+              }
+          }
+          
+          return tempList;
+  }
+  
+  public static ArrayList<Integer> getPartialArray(int[][] fullArray, double angle, int typeOf)
+      {
+          int rows = fullArray.length, cols = fullArray[0].length;
+          int centerRow = rows / 2, centerCol = cols / 2;
+          int arrayLength = (rows * cols);
+          ArrayList<Integer> tempList = new ArrayList<Integer>();
+          
+          double slope = Math.tan(angle);
+          if (slope == 0) slope = 0.001;
+          double newSlope = -1 / slope;
+          
+          for (int i = 0; i < arrayLength; i++)
+          {
+              int currentRow = i / cols, currentCol = i % cols;
+              System.out.println(i + "\t" + currentRow + " " + currentCol);
+              if (currentCol < (newSlope * (currentRow - centerRow) + centerCol))
+              {
+                  if (typeOf == 1)
+                  {
+                      tempList.add(fullArray[currentRow][currentCol]);
+                      System.out.println("added " + i);
+                  }
+              }
+              else
+              {
+                  if (typeOf == 0)
+                  {
+                      
+                      tempList.add(fullArray[currentRow][currentCol]);
+                      System.out.println("added " + i);
+                  }
+              }
+          }
+          
+          return tempList;
+      }
+  
   
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("caterpillar.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();

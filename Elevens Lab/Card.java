@@ -66,7 +66,7 @@ public class Card
         return false;
 	}
 
-	@Override
+
 	public String toString() 
 	{
 		return this.rank + " of " + this.suit + " (point value = " + this.pointValue + ")";

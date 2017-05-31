@@ -61,8 +61,6 @@ public class Deck {
 		return c;
 	}
 
-	
-	@Override
 	public String toString() {
 		String rtn = "size = " + size + "\nUndealt cards: \n";
 
